@@ -1,3 +1,28 @@
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header('Location: index.php');
+    exit();
+}
+
+$message = isset($_SESSION['message']) ? $_SESSION['message'] : '';
+unset($_SESSION['message']);
+
+// Obtener el ID del usuario de la sesión
+$userId = $_SESSION['user_id']; // Asegúrate de que el ID del usuario esté almacenado en la sesión
+
+// Incluir el servicio del solicitante
+require_once  '../backend/services/applicant.service.php';
+require_once '../backend/db/database.php';
+
+// Crear una conexión a la base de datos
+$database = new Database();
+$dbConnection = $database->connect();
+$applicantService = new ApplicantService($dbConnection);
+
+// Verificar si el solicitante ya existe
+$applicantExists = $applicantService->applicantExists($userId);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,17 +36,40 @@
 
 </head>
 <body class="wrapper">
+<?php if ($applicantExists): ?>
     <section class="sidebar">
         <div class="sidebar__principal">
             <img class="sidebar__logo" src="./img/LogoParcial2.png" alt="Consultec">
             <h2>TalentEase</h2>
             <h3>Completa tu Aplicación</h3>
         </div>
+
+        <div class="cont-iz-ab">
+            <p> <br><a href="./logout.php" class="link-celeste">Cerrar sesión </a></p>
+        </div>
+    </section>
+
+    <section class="content">
+        <h1>Ya has enviado tus datos para la aplicación.</h1>
+    </section>
+
+
+<?php else: ?>
+    <section class="sidebar">
+        <div class="sidebar__principal">
+            <img class="sidebar__logo" src="./img/LogoParcial2.png" alt="Consultec">
+            <h2>TalentEase</h2>
+            <h3>Completa tu Aplicación</h3>
+        </div>
+
+        <div class="cont-iz-ab">
+            <p> <br><a href="./logout.php" class="link-celeste">Cerrar sesión </a></p>
+        </div>
     </section>
 
     <section class="content">
         <div>
-            <form action="" class="formulario" id="formularioRegistro">
+            <form action="../backend/controllers/applicant.controller.php" method="post" class="formulario" id="formularioRegistro">
                 <h1>Información Personal</h1>
 
                 <div class="form-row">
@@ -99,5 +147,14 @@
             </form>
         </div>
     </section>
+
+<?php endif; ?>
+
+<script>
+    <?php if ($message): ?>
+    alert("<?php echo $message; ?>");
+    <?php endif; ?>
+</script>
+
 </body>
 </html>

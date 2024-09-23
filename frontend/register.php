@@ -1,3 +1,14 @@
+<?php
+session_start();
+if (isset($_SESSION['username'])) {
+    // Redirige a la página deseada, por ejemplo, la página principal o el panel de usuario
+    header('Location: applying.php');
+    exit();
+}
+$message = isset($_SESSION['message']) ? $_SESSION['message'] : '';
+unset($_SESSION['message']);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,20 +27,26 @@
             <h2>Te damos la bienvenida a TalentEase</h2>
         </div>
         <div class="sidebar__footer">
-            <p>¿Ya tienes una cuenta? <a href="./login.php" class="sidebar__enlace-login">Iniciar sesión</a></p>
+            <p>¿Ya tienes una cuenta? <a href="./index.php" class="sidebar__enlace-login">Iniciar sesión</a></p>
         </div>
     </section>
 
     <section class="content">
         <div>
             <h1 class="content__titulo"><span>Crear</span> Cuenta</h1>
-            <form action="" class="formulario" id="formularioRegistro">
-                <input type="text" name="user" id="user" placeholder="Ingresa tu Usuario" class="formulario__input" required>
-                <input type="password" name="contraseña" id="contraseña" placeholder="Ingresa tu nueva contraseña" class="formulario__input" required>
-                <input type="password" name="reptcontraseña" id="reptcontraseña" placeholder="Repite la contraseña que ingresaste" class="formulario__input" required>
+            <form action="../backend/controllers/register.controller.php" method="post" class="formulario" id="formularioRegistro">
+                <input type="text" name="username" id="user" placeholder="Ingresa tu Usuario" class="formulario__input" required>
+                <input type="password" name="password" id="password" placeholder="Ingresa tu nueva contraseña" class="formulario__input" required>
+                <input type="password" name="repeatPassword" id="repeatPassword" placeholder="Repite la contraseña que ingresaste" class="formulario__input" required>
                 <input type="submit" value="Crear Cuenta" class="formulario__boton">
             </form>
         </div>
     </section>
+
+    <script>
+        <?php if ($message): ?>
+        alert("<?php echo $message; ?>");
+        <?php endif; ?>
+    </script>
 </body>
 </html>

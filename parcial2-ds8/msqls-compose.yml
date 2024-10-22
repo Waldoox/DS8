@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server
+    container_name: sqlserver
+    hostname: Waldocker
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=!waldoo123
+      - MSSQL_PID=Developer
+    ports:
+      - "1433:1433"
+    networks:
+      - sqlnetwork
+    volumes:
+      - ./data:/var/opt/mssql:z
+
+
+networks:
+  sqlnetwork:
+    driver: bridge
+

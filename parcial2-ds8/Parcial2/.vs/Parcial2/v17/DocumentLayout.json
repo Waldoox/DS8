@@ -1,0 +1,68 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\kevin\\Downloads\\Parcial2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CDD5933D-BD36-4E92-AD66-E170EF9A47B7}|Parcial2.vbproj|c:\\users\\kevin\\downloads\\parcial2\\frmdashboard.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{CDD5933D-BD36-4E92-AD66-E170EF9A47B7}|Parcial2.vbproj|solutionrelative:frmdashboard.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDD5933D-BD36-4E92-AD66-E170EF9A47B7}|Parcial2.vbproj|c:\\users\\kevin\\downloads\\parcial2\\frmproductos.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{CDD5933D-BD36-4E92-AD66-E170EF9A47B7}|Parcial2.vbproj|solutionrelative:frmproductos.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDD5933D-BD36-4E92-AD66-E170EF9A47B7}|Parcial2.vbproj|c:\\users\\kevin\\downloads\\parcial2\\frmfacturacion.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{CDD5933D-BD36-4E92-AD66-E170EF9A47B7}|Parcial2.vbproj|solutionrelative:frmfacturacion.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmProductos.vb [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\kevin\\Downloads\\Parcial2\\frmProductos.vb",
+              "RelativeDocumentMoniker": "frmProductos.vb",
+              "ToolTip": "C:\\Users\\kevin\\Downloads\\Parcial2\\frmProductos.vb [Dise\u00F1o]",
+              "RelativeToolTip": "frmProductos.vb [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-10-23T23:37:51.336Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmFacturacion.vb [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\kevin\\Downloads\\Parcial2\\frmFacturacion.vb",
+              "RelativeDocumentMoniker": "frmFacturacion.vb",
+              "ToolTip": "C:\\Users\\kevin\\Downloads\\Parcial2\\frmFacturacion.vb [Dise\u00F1o]",
+              "RelativeToolTip": "frmFacturacion.vb [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-10-23T23:37:50.175Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmDashboard.vb [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\kevin\\Downloads\\Parcial2\\frmDashboard.vb",
+              "RelativeDocumentMoniker": "frmDashboard.vb",
+              "ToolTip": "C:\\Users\\kevin\\Downloads\\Parcial2\\frmDashboard.vb [Dise\u00F1o]",
+              "RelativeToolTip": "frmDashboard.vb [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-10-23T23:37:45.866Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

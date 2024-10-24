@@ -1,5 +1,5 @@
 -- Procedimiento para agregar un nuevo producto
-CREATE PROCEDURE AddProducto
+CREATE PROCEDURE AgregarProducto
     @NombreProducto VARCHAR(50),
     @Precio DECIMAL(10, 2),
     @Stock INT,
@@ -13,7 +13,7 @@ END
 GO
 
 -- Procedimiento para obtener todos los productos
-CREATE PROCEDURE GetAllProductos
+CREATE PROCEDURE ObtenerTodosProductos
 AS
 BEGIN
     SELECT * FROM Productos;
@@ -21,7 +21,7 @@ END
 GO
 
 -- Procedimiento para obtener un producto por ID
-CREATE PROCEDURE GetProductoById
+CREATE PROCEDURE ObtenerProductoPorId
     @ProductoID INT
 AS
 BEGIN
@@ -30,7 +30,7 @@ END
 GO
 
 -- Procedimiento para actualizar un producto
-CREATE PROCEDURE UpdateProducto
+CREATE PROCEDURE ActualizarProducto
     @ProductoID INT,
     @NombreProducto VARCHAR(50),
     @Precio DECIMAL(10, 2),
@@ -49,17 +49,19 @@ BEGIN
 END
 GO
 
--- Procedimiento para eliminar un producto
-CREATE PROCEDURE DeleteProducto
+-- Procedimiento para "eliminar" un producto
+CREATE PROCEDURE EliminarProducto
     @ProductoID INT
 AS
 BEGIN
-    DELETE FROM Productos WHERE ProductoID = @ProductoID;
+    UPDATE Productos
+    SET activo = 0
+    WHERE ProductoID = @ProductoID;
 END
 GO
 
 -- Procedimiento para agregar una nueva categoría
-CREATE PROCEDURE AddCategoria
+CREATE PROCEDURE AgregarCategoria
     @NombreCategoria VARCHAR(50)
 AS
 BEGIN
@@ -69,7 +71,7 @@ END
 GO
 
 -- Procedimiento para obtener todas las categorías
-CREATE PROCEDURE GetAllCategorias
+CREATE PROCEDURE ObtenerTodasCategorias
 AS
 BEGIN
     SELECT * FROM Categorías;
@@ -77,7 +79,7 @@ END
 GO
 
 -- Procedimiento para obtener una categoría por ID
-CREATE PROCEDURE GetCategoriaById
+CREATE PROCEDURE ObtenerCategoriaPorId
     @CategoriaID INT
 AS
 BEGIN
@@ -86,7 +88,7 @@ END
 GO
 
 -- Procedimiento para actualizar una categoría
-CREATE PROCEDURE UpdateCategoria
+CREATE PROCEDURE ActualizarCategoria
     @CategoriaID INT,
     @NombreCategoria VARCHAR(50)
 AS
@@ -97,17 +99,19 @@ BEGIN
 END
 GO
 
--- Procedimiento para eliminar una categoría
-CREATE PROCEDURE DeleteCategoria
+-- Procedimiento para "eliminar" una categoría
+CREATE PROCEDURE EliminarCategoria
     @CategoriaID INT
 AS
 BEGIN
-    DELETE FROM Categorías WHERE CategoriaID = @CategoriaID;
+    UPDATE Categorías
+    SET activo = 0
+    WHERE CategoriaID = @CategoriaID;
 END
 GO
 
 -- Procedimiento para agregar un nuevo proveedor
-CREATE PROCEDURE AddProveedor
+CREATE PROCEDURE AgregarProveedor
     @NombreProveedor VARCHAR(50),
     @Telefono VARCHAR(15)
 AS
@@ -118,7 +122,7 @@ END
 GO
 
 -- Procedimiento para obtener todos los proveedores
-CREATE PROCEDURE GetAllProveedores
+CREATE PROCEDURE ObtenerTodosProveedores
 AS
 BEGIN
     SELECT * FROM Proveedores;
@@ -126,7 +130,7 @@ END
 GO
 
 -- Procedimiento para obtener un proveedor por ID
-CREATE PROCEDURE GetProveedorById
+CREATE PROCEDURE ObtenerProveedorPorId
     @ProveedorID INT
 AS
 BEGIN
@@ -135,7 +139,7 @@ END
 GO
 
 -- Procedimiento para actualizar un proveedor
-CREATE PROCEDURE UpdateProveedor
+CREATE PROCEDURE ActualizarProveedor
     @ProveedorID INT,
     @NombreProveedor VARCHAR(50),
     @Telefono VARCHAR(15)
@@ -148,17 +152,19 @@ BEGIN
 END
 GO
 
--- Procedimiento para eliminar un proveedor
-CREATE PROCEDURE DeleteProveedor
+-- Procedimiento para "eliminar" un proveedor
+CREATE PROCEDURE EliminarProveedor
     @ProveedorID INT
 AS
 BEGIN
-    DELETE FROM Proveedores WHERE ProveedorID = @ProveedorID;
+    UPDATE Proveedores
+    SET activo = 0
+    WHERE ProveedorID = @ProveedorID;
 END
 GO
 
 -- Procedimiento para agregar un nuevo cliente
-CREATE PROCEDURE AddCliente
+CREATE PROCEDURE AgregarCliente
     @NombreCliente VARCHAR(50),
     @Correo VARCHAR(50),
     @Telefono VARCHAR(15)
@@ -170,7 +176,7 @@ END
 GO
 
 -- Procedimiento para obtener todos los clientes
-CREATE PROCEDURE GetAllClientes
+CREATE PROCEDURE ObtenerTodosClientes
 AS
 BEGIN
     SELECT * FROM Clientes;
@@ -178,7 +184,7 @@ END
 GO
 
 -- Procedimiento para obtener un cliente por ID
-CREATE PROCEDURE GetClienteById
+CREATE PROCEDURE ObtenerClientePorId
     @ClienteID INT
 AS
 BEGIN
@@ -187,7 +193,7 @@ END
 GO
 
 -- Procedimiento para actualizar un cliente
-CREATE PROCEDURE UpdateCliente
+CREATE PROCEDURE ActualizarCliente
     @ClienteID INT,
     @NombreCliente VARCHAR(50),
     @Correo VARCHAR(50),
@@ -202,17 +208,19 @@ BEGIN
 END
 GO
 
--- Procedimiento para eliminar un cliente
-CREATE PROCEDURE DeleteCliente
+-- Procedimiento para "eliminar" un cliente
+CREATE PROCEDURE EliminarCliente
     @ClienteID INT
 AS
 BEGIN
-    DELETE FROM Clientes WHERE ClienteID = @ClienteID;
+    UPDATE Clientes
+    SET activo = 0
+    WHERE ClienteID = @ClienteID;
 END
 GO
 
 -- Procedimiento para agregar una nueva factura
-CREATE PROCEDURE AddFactura
+CREATE PROCEDURE AgregarFactura
     @ClienteID INT,
     @FechaFactura DATE,
     @TotalFactura DECIMAL(10, 2)
@@ -224,7 +232,7 @@ END
 GO
 
 -- Procedimiento para obtener todas las facturas
-CREATE PROCEDURE GetAllFacturas
+CREATE PROCEDURE ObtenerTodasFacturas
 AS
 BEGIN
     SELECT * FROM Facturas;
@@ -232,7 +240,7 @@ END
 GO
 
 -- Procedimiento para obtener una factura por ID
-CREATE PROCEDURE GetFacturaById
+CREATE PROCEDURE ObtenerFacturaPorId
     @FacturaID INT
 AS
 BEGIN
@@ -241,7 +249,7 @@ END
 GO
 
 -- Procedimiento para actualizar una factura
-CREATE PROCEDURE UpdateFactura
+CREATE PROCEDURE ActualizarFactura
     @FacturaID INT,
     @ClienteID INT,
     @FechaFactura DATE,
@@ -256,17 +264,19 @@ BEGIN
 END
 GO
 
--- Procedimiento para eliminar una factura
-CREATE PROCEDURE DeleteFactura
+-- Procedimiento para "eliminar" una factura
+CREATE PROCEDURE EliminarFactura
     @FacturaID INT
 AS
 BEGIN
-    DELETE FROM Facturas WHERE FacturaID = @FacturaID;
+    UPDATE Facturas
+    SET activo = 0
+    WHERE FacturaID = @FacturaID;
 END
 GO
 
 -- Procedimiento para agregar un detalle de factura
-CREATE PROCEDURE AddDetalleFactura
+CREATE PROCEDURE AgregarDetalleFactura
     @FacturaID INT,
     @ProductoID INT,
     @Cantidad INT,
@@ -279,7 +289,7 @@ END
 GO
 
 -- Procedimiento para obtener todos los detalles de factura
-CREATE PROCEDURE GetAllDetallesFactura
+CREATE PROCEDURE ObtenerTodosDetallesFactura
 AS
 BEGIN
     SELECT * FROM DetallesFactura;
@@ -287,7 +297,7 @@ END
 GO
 
 -- Procedimiento para obtener un detalle de factura por ID
-CREATE PROCEDURE GetDetalleFacturaById
+CREATE PROCEDURE ObtenerDetalleFacturaPorId
     @DetalleID INT
 AS
 BEGIN
@@ -296,7 +306,7 @@ END
 GO
 
 -- Procedimiento para actualizar un detalle de factura
-CREATE PROCEDURE UpdateDetalleFactura
+CREATE PROCEDURE ActualizarDetalleFactura
     @DetalleID INT,
     @FacturaID INT,
     @ProductoID INT,
@@ -313,11 +323,13 @@ BEGIN
 END
 GO
 
--- Procedimiento para eliminar un detalle de factura
-CREATE PROCEDURE DeleteDetalleFactura
+-- Procedimiento para "eliminar" un detalle de factura
+CREATE PROCEDURE EliminarDetalleFactura
     @DetalleID INT
 AS
 BEGIN
-    DELETE FROM DetallesFactura WHERE DetalleID = @DetalleID;
+    UPDATE DetallesFactura
+    SET activo = 0
+    WHERE DetalleID = @DetalleID;
 END
 GO
